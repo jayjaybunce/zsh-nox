@@ -80,7 +80,7 @@ elif [[ "$OSTYPE" = darwin* ]]; then
 	alias ls='ls -G'
 fi
 
-if [[ ! -v EDITOR ]]; then
+if [[ ! -n "${EDITOR+1}" ]]; then
 	AVAILABLE_EDITOR=("${(f)$(which vim joe nano)}")
 	for AV in $AVAILABLE_EDITOR; do
 		if [[ -x "$AV" ]]; then
@@ -104,7 +104,7 @@ if [[ ! -v EDITOR ]]; then
 fi
 
 # Override in $HOME/.zshnox
-if [[ ! -v LANG ]]; then
+if [[ ! -n "${LANG+1}" ]]; then
 	export LANG="en_US.UTF-8"
 	export LC_CTYPE="sv_SE.UTF-8"
 fi
