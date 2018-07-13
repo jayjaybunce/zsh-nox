@@ -67,6 +67,16 @@ AUTOSWITCH_VIRTUALENV_NAME="pyenv"
 PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 export PATH
 
+# Load profile.d
+if [ -d /etc/profile.d ]; then
+	for i in /etc/profile.d/*.sh; do
+		if [ -r $i ]; then
+			. $i
+		fi
+	done
+	unset i
+fi
+
 if [[ -f $HOME/.zshnox ]]; then
 	source $HOME/.zshnox
 fi
@@ -81,7 +91,7 @@ elif [[ "$OSTYPE" = darwin* ]]; then
 fi
 
 if [[ ! -n "${EDITOR+1}" ]]; then
-	AVAILABLE_EDITOR=("${(f)$(which vim joe nano)}")
+	AVAILABLE_EDITOR=("${(f)$(which vim vim.tiny vim.basic joe nano)}")
 	for AV in $AVAILABLE_EDITOR; do
 		if [[ -x "$AV" ]]; then
 			# Found a editor
@@ -92,7 +102,7 @@ if [[ ! -n "${EDITOR+1}" ]]; then
 
 	# Sane default setup for EDITOR
 	# Override in $HOME/.zshnox
-	if [[ $EDITOR == "vim" ]]; then
+	if [[ $EDITOR == "vim*" ]]; then
 		export EDITOR
 	elif [[ $EDITOR == "joe" ]]; then
 		EDITOR="$EDITOR -nobackups"
