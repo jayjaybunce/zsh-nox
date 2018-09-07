@@ -69,7 +69,7 @@ export PATH
 
 # Load profile.d
 if [ -d /etc/profile.d ]; then
-	for i in /etc/profile.d/*.sh; do
+	for i in /etc/profile.d/*.sh(.N); do
 		if [ -r $i ]; then
 			. $i
 		fi
