@@ -56,7 +56,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(yes_iam_lazy autoswitch_virtualenv_classic)
+plugins=(yes_iam_lazy autoswitch_virtualenv_classic iterm2_shell_integration)
 
 # For autoswitch_virutalenv_classic
 AUTOSWITCH_VIRTUALENV_NAME="pyenv"
